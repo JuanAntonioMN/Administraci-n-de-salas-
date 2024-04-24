@@ -25,6 +25,24 @@ exports.crearSala = async (req, res) => {
     }
 };
 
+exports.obtenerSala = (req, res) => {
+    const id = parseInt(req.params.id);
+    pool.query('SELECT * FROM salas WHERE id_sala = ?', [id], (error, results, fields) => {
+        if (error) {
+            console.error('Error al realizar la consulta', error);
+            return res.status(500).json({ error: error.message });
+        }
+    
+        if (results.length > 0) { // Cambia 'results.rows.length' a 'results.length'
+            res.status(200).json(results[0]); // Cambia 'results.rows[0]' a 'results[0]'
+        } else {
+            res.status(404).json({ message: "Sala no encontrada" });
+        }
+    });
+    
+};
+
+
 
 
 
