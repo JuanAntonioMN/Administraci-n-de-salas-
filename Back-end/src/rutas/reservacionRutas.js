@@ -4,6 +4,6 @@ const reservasController = require('../controladores/reservacionControlador');
 
 // Define las rutas para la gestión de reservas
 router.post('/',reservasController.crearReserva);
-router.delete('/:id', reservasController.liberarReserva);
-
+router.get('/mostrar',reservasController.reservaciones);
+router.post('/liberar-sala/:id',reservasController.liberarSala);
 module.exports = router;

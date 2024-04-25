@@ -79,3 +79,24 @@ exports.eliminarSala = (req, res) => {
 
 
 
+
+// Filtrar y devolver solo las salas disponibles (where available = true)
+exports.listarSalasDisponibles = (req, res) => {
+    pool.query('SELECT * FROM salas WHERE available = false', (error, results) => {
+        if (error) {
+            return res.status(500).json({ error: error.message });
+        }
+        res.status(200).json(results);
+    });
+};
+
+// Filtrar y devolver solo las salas no disponibles (where available = false)
+exports.listarSalasNoDisponibles = (req, res) => {
+    pool.query('SELECT * FROM salas WHERE available = true', (error, results) => {
+        if (error) {
+            return res.status(500).json({ error: error.message });
+        }
+        res.status(200).json(results);
+    });
+};
+

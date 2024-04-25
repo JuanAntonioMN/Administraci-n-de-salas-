@@ -1,0 +1,22 @@
+
+<div class="formulario">
+    <form class="content" [formGroup]="salaForm" (ngSubmit)="onSubmit()">
+        <h1 class="title">AGREGAR SALA</h1>
+        <div class="datos">
+            
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre de la sala" formControlName="nombre">
+        </div>
+
+        <div class="datos">
+            <input type="number" name="capacidad" id="capacidad" placeholder="Capacidad de la sala" formControlName="capacidad">
+
+        </div>
+
+        <div class="botones">
+            <button class="regresar" (click)="regresar()">Regresar</button>
+            <button class="agregar" type="submit" [disabled]="!salaForm.valid">Agregar</button>
+        </div>
+   
+    </form>
+    
+</div>

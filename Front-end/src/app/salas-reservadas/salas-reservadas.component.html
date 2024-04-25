@@ -1,0 +1,9 @@
+<div *ngFor="let reserva of reservaciones" class="salas">
+    <p>{{ reserva.sala_nombre }} - Disponible: {{ reserva.sala_disponible }}</p>
+    <button (click)="liberarSala(reserva.id_sala)">Liberar Sala</button>
+  </div>
+  
+  <ng-template #noData>
+    <p>No hay reservaciones disponibles.</p>
+  </ng-template>
+  

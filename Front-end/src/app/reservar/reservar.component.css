@@ -1,0 +1,86 @@
+.formulario{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 100px;
+   
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 450px;
+    margin: 100px;
+    border: 1px solid black;
+    box-shadow: 30px -5px 0px 15px #a7effa;
+}
+
+.content:hover{
+    box-shadow: 0px 0px 10px 1px #26c9ea;
+    border: none;
+
+}
+
+.title{
+    font-size: 1.9rem;
+    margin-top: 30px;
+    color: #0aacd0;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.datos{
+    margin-top: 50px;
+}
+
+.botones{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.regresar, .agregar{
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+}
+
+.regresar{
+    background-color: #ff2a2a;
+    border: 2px solid #f80a0a;
+}
+
+.agregar{
+    background-color: #0aacd0;
+    border: 2px solid #26c9ea;
+}
+
+input{
+    width: 400px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: left;
+    background-color: #ecfdff;
+    border: none;
+   
+}
+
+input::placeholder{
+    color: grey;
+    opacity: 1;
+}
+
+input:focus{
+    border-bottom: 1px solid black;
+    box-shadow: none;
+    outline: none;
+    border-color: #0aacd0;
+    
+}

@@ -16,7 +16,7 @@ const salasRoutes = require('./rutas/salasRutas');
 const reservasRoutes = require('./rutas/reservacionRutas');
 
 app.use('/salas', salasRoutes);
-app.use('/reservas', reservasRoutes);
+app.use('/reservacion', reservasRoutes);
 
 app.get('/', (req, res) => {
     res.send('API de Gestión de Salas de Juntas está funcionando!');

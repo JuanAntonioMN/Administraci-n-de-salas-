@@ -1,0 +1,20 @@
+<div class="formulario">
+    
+    <form class="content" [formGroup]="salaForm" (ngSubmit)="onSubmit()">
+        <h1 class="title">Editar Sala</h1>
+      <div class="datos">
+       
+        <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre de la sala">
+      </div>
+      <div class="datos">
+        
+        <input id="capacidad" type="number" formControlName="capacidad" placeholder="Capacidad de la sala">
+      </div>
+      <div  class="botones">
+        <button class="agregar" type="submit" [disabled]="!salaForm.valid">Guardar Cambios</button>
+      </div>
+      
+    </form>
+</div>
+
+

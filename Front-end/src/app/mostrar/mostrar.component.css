@@ -1,0 +1,47 @@
+.title{
+font-size: 3rem;
+font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border: 5px solid black;
+    border-collapse: collapse; 
+    margin-top: 10px;
+    background-color: white;
+  }
+  th, td {
+    text-align: center;
+    font-size: 2rem;
+    padding: 8px;
+  }
+  thead th {
+    background-color:#6ae1f6; 
+    border-bottom: 2px solid #dee2e6; 
+  }
+  tbody td {
+    border-bottom: 1px solid #dee2e6; 
+  }
+  tbody tr:last-child td {
+    border-bottom: none; 
+  }
+
+
+  .eliminar, .modificar{
+    width: 120px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .modificar{
+    background-color: #35f35b;
+    border: 1px solid #02b727;
+    font-weight: bold;
+  }
+
+  .eliminar{
+    background-color: #f01212;
+    border: 1px solid #ff3131;
+  }

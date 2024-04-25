@@ -1,0 +1,27 @@
+<div class="content-table">
+    <h1 class="title">Reservar salas</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre de la sala</th>
+            <th>Capacidad </th>
+            <th>Disponibilidad</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sala of salasDisponibles">
+            <td>{{sala.id_sala}}</td>
+            <td>{{sala.nombre}}</td>
+            <td>{{sala.capacidad}}</td>
+            <td>Disponible</td>
+            <td>
+              <button class="reservar" (click)="reservarSala(sala.id_sala)">
+                <i class="fa-regular fa-address-book"></i> Reservar sala
+              </button>
+            </td>
+          </tr>     
+        </tbody>
+      </table>
+</div>

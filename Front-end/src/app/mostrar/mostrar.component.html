@@ -1,0 +1,25 @@
+<h1 class="title">Salas creadas</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre de la sala</th>
+        <th>Capacidad </th>
+        <th>Disponibilidad</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sala of salas">
+        <td>{{sala.id_sala}}</td>
+        <td>{{sala.nombre}}</td>
+        <td>{{sala.capacidad}}</td>
+        <td>{{sala.available === true ? 'No disponible' : 'Disponible'}}</td>
+        <td><Button class="eliminar" (click)="modificar(sala.id_sala)"><i class="fa-solid fa-pen"></i> Modificar</Button></td>
+        <td><button class="modificar" (click)="eliminarSala(sala.id_sala)"><i class="fa-solid fa-trash"></i> Eliminar</button></td>
+        
+      </tr>     
+    </tbody>
+  </table>

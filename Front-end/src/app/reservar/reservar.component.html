@@ -1,0 +1,41 @@
+<div *ngIf="sala" class="formulario">
+  <form [formGroup]="reservaForm" (ngSubmit)="confirmarReserva()" class="content">
+    <h1 class="title">Reserva de Sala: {{ sala.nombre }}</h1>
+    
+    <div class="datos">
+      <label for="capacidad">Capacidad:</label>
+      <input type="text" [value]="sala.capacidad" disabled>
+    </div>
+
+    <div class="datos">
+      <label for="fechaInicio">Fecha de la reservación:</label>
+      <input type="date" formControlName="fecha" id="fechaInicio" [min]="todayDate">
+      <div *ngIf="reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.errors?.['required']">
+        La fecha es requerida.
+      </div>
+    </div>
+
+    <div class="datos">
+      <label for="horaInicio">Hora de inicio:</label>
+      <input type="time" formControlName="hora_inicial" id="horaInicio">
+      <div *ngIf="reservaForm.get('hora_inicial')?.touched && reservaForm.get('hora_inicial')?.errors?.['required']">
+        La hora de inicio es requerida.
+      </div>
+    </div>
+
+    <div class="datos">
+      <label for="horaFin">Hora de fin:</label>
+      <input type="time" formControlName="hora_final" id="horaFin">
+      <div *ngIf="reservaForm.get('hora_final')?.touched && reservaForm.get('hora_final')?.errors?.['required']">
+        La hora de fin es requerida.
+      </div>
+      <div *ngIf="reservaForm.get('hora_final')?.touched && reservaForm.errors?.['timeInvalid']">
+        La duración de la reserva debe ser mayor de 0 horas y no exceder las 2 horas.
+      </div>
+    </div>
+
+    <div class="botones">
+      <button class="agregar" type="submit">Confirmar Reserva</button>
+    </div>
+  </form>
+</div>
