@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, Valid
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Salas } from '../salas';
-
+import { AlertsService } from '../alerts.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-reservar',
   templateUrl: './reservar.component.html',
@@ -14,11 +15,7 @@ export class ReservarComponent implements OnInit {
   reservaForm: FormGroup;
   todayDate: string;
 
-  constructor(
-    private apiService: ApiService,
-    private route: ActivatedRoute,
-    private fb: FormBuilder
-  ) {
+  constructor(private router: Router,private apiService: ApiService,private route: ActivatedRoute,private fb: FormBuilder,private alertService: AlertsService) {
     this.todayDate = new Date().toISOString().split('T')[0];
 
     this.reservaForm = this.fb.group({
@@ -45,7 +42,7 @@ export class ReservarComponent implements OnInit {
   }
 
   confirmarReserva(): void {
-    // Comprobar primero si el formulario es válido
+   
     if (this.reservaForm.valid && this.sala) {
       const reservaData = {
         id_sala: this.sala.id_sala,
@@ -54,23 +51,26 @@ export class ReservarComponent implements OnInit {
         fecha: this.reservaForm.value.fecha,
       };
   
-      // Todo está bien, proceder con la reserva
+    
       this.apiService.reservarSala(reservaData).subscribe({
         next: (response) => {
-          console.log('Reserva realizada con éxito', response);
+          this.alertService.insert("Sala reservada con exito")
         },
         error: (error) => {
-          console.error('Error al realizar la reserva', error);
+          this.alertService.error('No se pudo reservar la sala')
         }
       });
+
+      this.router.navigate(['/reservarSalas']);
     } else {
-      // El formulario no es válido, manejar los errores
+      
       if (this.reservaForm.errors && this.reservaForm.errors['timeInvalid']) {
-        console.error('La duración de la reserva debe ser mayor de 0 horas y no exceder las 2 horas.');
+        this.alertService.error('La duración de la reserva no es valido');
       } else {
-        console.error('Formulario no válido', this.reservaForm.errors);
+        this.alertService.error('Formulario no valido')
       }
     }
+    
   }
   
 

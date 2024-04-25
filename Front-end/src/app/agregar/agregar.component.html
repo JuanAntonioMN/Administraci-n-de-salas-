@@ -8,12 +8,11 @@
         </div>
 
         <div class="datos">
-            <input type="number" name="capacidad" id="capacidad" placeholder="Capacidad de la sala" formControlName="capacidad">
+            <input type="number" name="capacidad" id="capacidad" placeholder="Capacidad de la sala" formControlName="capacidad" >
 
         </div>
 
         <div class="botones">
-            <button class="regresar" (click)="regresar()">Regresar</button>
             <button class="agregar" type="submit" [disabled]="!salaForm.valid">Agregar</button>
         </div>
    

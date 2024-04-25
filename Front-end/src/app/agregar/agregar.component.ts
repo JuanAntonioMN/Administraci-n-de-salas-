@@ -1,7 +1,7 @@
-import { Component,OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { Salas } from '../salas';
+import { AlertsService } from '../alerts.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-agregar',
@@ -17,7 +17,7 @@ export class AgregarComponent {
   });
  
 
-  constructor(private router: Router,private fb: FormBuilder, private apiService: ApiService) { }
+  constructor(private router: Router,private fb: FormBuilder, private apiService: ApiService,private alertService: AlertsService) { }
 
   ngOnInit(): void {
     this.salaForm = this.fb.group({
@@ -30,15 +30,19 @@ export class AgregarComponent {
   onSubmit(): void {
     if (this.salaForm.valid) {
       this.apiService.insertSala(this.salaForm.value).subscribe({
-        next: (response) => console.log('Sala agregada', response),
-        error: (err) => console.error('Error al agregar sala', err)
+        next: (response) =>
+          this.alertService.insert("Sala insertada con exito"),
+        
+
+        error: (err) => this.alertService.error('No se inserto la sala')
       });
+
+      this.router.navigate(['/crud']);
+
     }
   }
 
-  regresar(){
-    this.router.navigate(['../crud']);
-  }
+
   
  
 }

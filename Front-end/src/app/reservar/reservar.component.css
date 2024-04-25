@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 20px;
    
 }
 
@@ -10,29 +10,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
-    height: 450px;
+    width: 35%;
+    height: 750px;
+    max-height: 750px;
     margin: 100px;
-    border: 1px solid black;
-    box-shadow: 30px -5px 0px 15px #a7effa;
+    background-color: white;
+    border: 1px solid #babefd;
+    box-shadow: 25px 15px 0px 5px #384af8;
 }
-
+label{
+    font-size: 1.5rem;
+    color: #0e22e9;
+}
 .content:hover{
-    box-shadow: 0px 0px 10px 1px #26c9ea;
+    box-shadow: 0px 0px 10px 1px #babefd;
     border: none;
 
 }
 
+.text-mensaje{
+    font-size: 1.3rem;
+    text-align: left;
+    color: #7d87fc;
+}
+
 .title{
-    font-size: 1.9rem;
+    text-transform: uppercase;
+    
+    font-size: 2rem;
+    font-weight: 600;
     margin-top: 30px;
-    color: #0aacd0;
-    font-weight: bolder;
-    text-align: center;
+    color: #384af8;
 }
 
 .datos{
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
 }
 
 .botones{
@@ -42,45 +56,47 @@
     justify-content: center;
 }
 
-.regresar, .agregar{
-    width: 200px;
-    height: 50px;
-    margin-left: 10px;
-    font-size: 1.2rem;
-    text-align: center;
-    font-weight: bold;
-    color:white;
-}
-
-.regresar{
-    background-color: #ff2a2a;
-    border: 2px solid #f80a0a;
-}
-
 .agregar{
-    background-color: #0aacd0;
-    border: 2px solid #26c9ea;
+    width: 400px;
+    height: 70px;
+    margin-left: 10px;
+    font-size: 1.9rem;
+    text-align: center;
+    font-weight: 100;
+    color:white;
+    background-color:#0e22e9;
+    border: 2px solid #020ec7;
+    border-radius: 5px;
+}
+
+.agregar:hover{
+    color:#384af8;
+    background-color:white;
+    box-shadow: 0px 0px 10px 1px #babefd;
 }
 
 input{
     width: 400px;
     height: 50px;
     font-size: 1.5rem;
+    font-weight: 400;
     text-align: left;
-    background-color: #ecfdff;
     border: none;
+    border-bottom: 1px solid #384af8;
+    color: #020ec7;
    
 }
 
 input::placeholder{
-    color: grey;
+    color: #babefd;
     opacity: 1;
+   
 }
 
 input:focus{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #0e22e9;
     box-shadow: none;
     outline: none;
-    border-color: #0aacd0;
-    
+    border-color: #0e22e9;
+    border-width: 3px;
 }

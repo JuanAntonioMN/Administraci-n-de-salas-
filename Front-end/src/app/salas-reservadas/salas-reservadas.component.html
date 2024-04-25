@@ -1,9 +1,35 @@
-<div *ngFor="let reserva of reservaciones" class="salas">
-    <p>{{ reserva.sala_nombre }} - Disponible: {{ reserva.sala_disponible }}</p>
-    <button (click)="liberarSala(reserva.id_sala)">Liberar Sala</button>
+<div class="content">
+  <div class="title-content">
+    <h1 class="title">Salas reservadas</h1>
   </div>
-  
-  <ng-template #noData>
-    <p>No hay reservaciones disponibles.</p>
-  </ng-template>
-  
+
+  <div class="content-cards">
+    <div *ngFor="let reserva of reservaciones" class="content-one">
+      <div class="content-two">
+        <div class="content-id">
+          <p class="text-id">Id / #{{ reserva.id_sala }}</p>
+        </div>
+
+        <div class="content-title">
+          <h1 class="title-card">{{ reserva.sala_nombre }}</h1>
+        </div>
+
+        <div class="content-text">
+          <ul>
+            <li><b>Capacidad:</b> {{ reserva.capacidad }}</li>
+            <li><b>Fecha:</b> {{ reserva.fecha | date : "yyyy-MM-dd" }}</li>
+            <li><b>Hora inicial:</b> {{ reserva.hora_inicial }}</li>
+            <li><b>Hora final:</b> {{ reserva.hora_final }}</li>
+          </ul>
+        </div>
+
+        <div class="button-delete">
+          <button class="delete" (click)="liberarSala(reserva.id_sala)">
+            Liberar Sala
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

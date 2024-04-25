@@ -1,37 +1,40 @@
-
-
-.title{
-font-size: 3rem;
-font-weight: 400;
-color: #384af8;
-text-align: center;
+.title {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #384af8;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-  .content-cards{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
+.content-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .content-one{
-    display: flex;
-   
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
-    width: 400px;
-    height: 400px;
-    max-width: 400px;
-    
-    background-color:white;
-    box-shadow:0px 0px 5px #384af8;
-    border-radius: 15px;
-    background-color: white;
-    margin-top: 50px;
-    margin-left: 50px;
-  }
+.content-one {
+  display: flex;
 
-.content-two{
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: 400px;
+  height: 400px;
+  max-width: 400px;
+  background-color: white;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 0px 5px #384af8;
+  border-radius: 15px;
+  background-color: white;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.content-one:hover {
+  box-shadow: 0px 10px 30px #384af8;
+}
+
+.content-two {
   width: 100%;
   height: 360px;
   margin: 10px;
@@ -40,50 +43,50 @@ text-align: center;
   background-color: #e0e0fe;
 }
 
-.content-id{
+.content-id {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color:#7d87fc;
+  background-color: #7d87fc;
   width: 30%;
   height: 60px;
   border-radius: 0px 50px 50px 0px;
 }
 
-.text-id{
+.text-id {
   font-size: 1.2rem;
   font-weight: bolder;
   text-align: center;
   margin: 10px;
 }
-p{
+p {
   color: white;
 }
 
-.content-title{
+.content-title {
   margin-top: 20px;
- margin-left: 10px;
+  margin-left: 10px;
 }
 
-.title-card{
+.title-card {
   font-size: 2.1rem;
   font-weight: 400;
   color: #384af8;
   overflow-wrap: break-word;
 }
 
-ul{
+ul {
   margin: 10px;
 }
 
-li{
+li {
   list-style: none;
   font-size: 1.7rem;
   color: #7d87fc;
 }
 
-
-.button-update,.button-delete{
+.button-update,
+.button-delete {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -91,7 +94,8 @@ li{
   width: 100%;
 }
 
-.update,.delete{
+.update,
+.delete {
   width: 100%;
   max-width: 350px;
   height: 50px;
@@ -103,14 +107,13 @@ li{
   border-radius: 10px;
 }
 
-
-.delete:hover{
-  background-color:white;
+.delete:hover {
+  background-color: white;
   border: 3px solid #384af8;
   color: #384af8;
 }
 
-.update:hover{
+.update:hover {
   background-color: white;
   border: 3px solid #384af8;
   color: #384af8;

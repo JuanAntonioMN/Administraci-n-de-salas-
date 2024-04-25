@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Salas } from '../salas';
 import { Router } from '@angular/router';
+import { AlertsService } from '../alerts.service';
 @Component({
   selector: 'app-mostrar',
   templateUrl: './mostrar.component.html',
@@ -11,7 +12,7 @@ export class MostrarComponent implements OnInit {
   salas:Salas[]=[];//Arreglo de salas 
   estado:string="";
 
-  constructor(private router: Router,private api:ApiService){}
+  constructor(private router: Router,private api:ApiService,private alertService: AlertsService){}
   ngOnInit(): void {
     this.mostrarSalas();
   }
@@ -26,10 +27,10 @@ export class MostrarComponent implements OnInit {
   eliminarSala(id: number): void {
     this.api.eliminarSala(id).subscribe({
       next: () => {
-        console.log('Sala eliminada con éxito');
-        this.salas = this.salas.filter(sala => sala.id_sala !== id); // Actualiza la lista en el frontend
+        this.alertService.insert("La sala se eliminada con exito")
+        this.salas = this.salas.filter(sala => sala.id_sala !== id); 
       },
-      error: (err) => console.error('Error al eliminar la sala', err)
+      error: (err) => this.alertService.error('No se pudo eliminar la sala')
     });
   }
   

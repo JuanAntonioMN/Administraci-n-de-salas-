@@ -1,27 +1,36 @@
-<div class="content-table">
+<div class="content-card">
+  <div class="title-content">
     <h1 class="title">Reservar salas</h1>
-    <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nombre de la sala</th>
-            <th>Capacidad </th>
-            <th>Disponibilidad</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let sala of salasDisponibles">
-            <td>{{sala.id_sala}}</td>
-            <td>{{sala.nombre}}</td>
-            <td>{{sala.capacidad}}</td>
-            <td>Disponible</td>
-            <td>
-              <button class="reservar" (click)="reservarSala(sala.id_sala)">
-                <i class="fa-regular fa-address-book"></i> Reservar sala
-              </button>
-            </td>
-          </tr>     
-        </tbody>
-      </table>
+  </div>
+  
+  <div class="content-cards">
+    <div *ngFor="let sala of salasDisponibles" class="content-one">
+      <div class="content-two">
+  
+        <div class="content-id">
+          <p class="text-id">Id / #{{sala.id_sala}}</p>
+        </div>
+  
+        <div class="content-title">
+          <h1 class="title-card">{{sala.nombre}}</h1>
+        </div>
+  
+        <div class="content-text">
+          <ul>
+            <li>Capacidad: {{sala.capacidad}}</li>
+            <li>Disponibilidad: {{sala.available ? 'No disponible' : 'Disponible'}}</li>
+          </ul>
+        </div>
+        <div class="button-modificar">
+          <button class="reservar" (click)="reservarSala(sala.id_sala)">
+            <i class="fa-regular fa-address-book"></i> Reservar sala
+          </button>
+        </div>
+         
+  
+      </div>
+    </div>
+  </div>
+  
 </div>
+

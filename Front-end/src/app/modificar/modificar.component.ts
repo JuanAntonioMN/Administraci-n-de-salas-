@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ActivatedRoute,Router } from '@angular/router';
+import { AlertsService } from '../alerts.service';
 @Component({
   selector: 'app-modificar',
   templateUrl: './modificar.component.html',
@@ -16,10 +17,7 @@ export class ModificarComponent implements OnInit{
   });
   id?: number;
 
-  constructor(private fb: FormBuilder,
-    private apiService: ApiService,
-    private route: ActivatedRoute,
-    private router: Router) {
+  constructor(private fb: FormBuilder,private apiService: ApiService,private route: ActivatedRoute,private router: Router,private alertService: AlertsService) {
       this.salaForm = this.fb.group({
         nombre: ['', Validators.required],
         capacidad: ['', Validators.required],
@@ -56,14 +54,18 @@ export class ModificarComponent implements OnInit{
     if (this.salaForm?.valid && this.id !== undefined) {
       this.apiService.modificarSala(this.id, this.salaForm.value).subscribe({
         next: () => {
-          console.log('Sala actualizada con éxito');
+          this.alertService.insert("Sala modificada con exito")
           this.router.navigate(['/crud']);  // Asumiendo que quieres redirigir al usuario
         },
-        error: (err) => console.error('Error al actualizar la sala', err)
+     
+        error:()=>this.alertService.error('Error al actualizar la sala')
+
       });
     } else {
-      console.error('Formulario no válido o ID de sala no definido.');
+      
+      this.alertService.error('Formulario no válido o ID de sala no definido.')
     }
+    this.router.navigate(['/crud']);
   }
   
 }

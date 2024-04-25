@@ -21,7 +21,7 @@ export class ReservacionesComponent {
     this.api.getSalasDisponibles().subscribe({
       next: (data) => {
         this.salasDisponibles = data;
-        console.log('Salas disponibles:', data);
+       
       },
       error: (error) => console.error('Error al obtener las salas disponibles', error)
     });
