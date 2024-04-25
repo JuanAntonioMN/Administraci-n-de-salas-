@@ -1,25 +1,38 @@
-<h1 class="title">Salas creadas</h1>
 
-<table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nombre de la sala</th>
-        <th>Capacidad </th>
-        <th>Disponibilidad</th>
-        <th>Modificar</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sala of salas">
-        <td>{{sala.id_sala}}</td>
-        <td>{{sala.nombre}}</td>
-        <td>{{sala.capacidad}}</td>
-        <td>{{sala.available === true ? 'No disponible' : 'Disponible'}}</td>
-        <td><Button class="eliminar" (click)="modificar(sala.id_sala)"><i class="fa-solid fa-pen"></i> Modificar</Button></td>
-        <td><button class="modificar" (click)="eliminarSala(sala.id_sala)"><i class="fa-solid fa-trash"></i> Eliminar</button></td>
+  <div class="title-content">
+    <h1 class="title">Salas creadas</h1>
+  </div>
+  
+  <div class="content-cards">
+    <div *ngFor="let sala of salas" class="content-one">
+      <div class="content-two">
+  
+        <div class="content-id">
+          <p class="text-id">Id / #{{sala.id_sala}}</p>
+        </div>
+  
+        <div class="content-title">
+          <h1 class="title-card">{{sala.nombre}}</h1>
+        </div>
+  
+        <div class="content-text">
+          <ul>
+            <li>Capacidad: {{sala.capacidad}}</li>
+            <li>Disponibilidad: {{sala.available ? 'No disponible' : 'Disponible'}}</li>
+          </ul>
+        </div>
         
-      </tr>     
-    </tbody>
-  </table>
+          <div class="button-update">
+            <button class="update" (click)="modificar(sala.id_sala)"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+          </div>
+    
+          <div class="button-delete">
+            <button class="delete" (click)="eliminarSala(sala.id_sala)"> <i class="fa-solid fa-trash"></i> Eliminar</button>
+          </div>
+      
+      
+  
+      </div>
+    </div>
+  </div>
+  

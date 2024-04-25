@@ -4,35 +4,46 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 120px;
+
 }
 
 .agregar{
     display: flex;
-    justify-content: flex-end;
+    justify-content:space-around;
     margin-right: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
 }
 
-.mostrar{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-}
-
 .boton-agregar{
     width: 250px;
     height: 50px;
     font-size: 1.2rem;
-    background-color: #26c9ea;
-    color: black;
+    background-color:white ;
+    color: #384af8;
     font-weight: bold;
-    border: 3px solid black;
+    border: 2px solid #020ec7;
     border-radius: 5px;
-    box-shadow: 5px 5px 5x black;
+    box-shadow: 50px 5px 10px 1px #384af8;
 }
+
+.boton-agregar:hover{
+    box-shadow:0px 0px 5px #384af8;
+    background-color:#020ec7 ;
+    color: white;
+}
+
+.mostrar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+
+    margin: 50px;
+}
+
 
 
